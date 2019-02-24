@@ -5,7 +5,7 @@ using NameSorter.Data;
 
 namespace NameSorter.IO
 {
-    public class ChannelWriter<T> : IWriter<T>
+    public abstract class ChannelWriter<T> : IWriter<T>
     {
         private readonly IDataConverter<T> converter;
         private readonly Stream stream;
@@ -15,7 +15,7 @@ namespace NameSorter.IO
         /// </summary>
         /// <param name="converter">The converter type to use.</param>
         /// <param name="stream">The output stream to use.</param>
-        public ChannelWriter(IDataConverter<T> converter, Stream stream)
+        protected ChannelWriter(IDataConverter<T> converter, Stream stream)
         {
             this.converter = converter;
             this.stream = stream;

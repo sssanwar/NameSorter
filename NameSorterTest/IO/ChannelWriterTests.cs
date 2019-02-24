@@ -9,12 +9,16 @@ namespace NameSorterTest.IO
 {
     public class ChannelWriterTests
     {
+        class ChannelWriterMock : ChannelWriter<Person> {
+            public ChannelWriterMock(IDataConverter<Person> converter, Stream stream) : base(converter, stream) { }
+        }
+
         [Fact]
         public void Write_NameList_NamesPrinted()
         {
             using (var ms = new MemoryStream())
             {
-                var cw = new ChannelWriter<Person>(new PlainDataConverter<Person>(), ms);
+                var cw = new ChannelWriterMock(new PlainDataConverter<Person>(), ms);
                 var bytes = cw.Write(new List<Person>
                 {
                     new Person("a b"),
