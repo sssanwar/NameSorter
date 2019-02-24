@@ -24,7 +24,7 @@ namespace NameSorter.Data
                     }
                     catch (ArgumentException)
                     {
-                        // Skip and do nothing, just continue...
+                        // Null or whitespace values, skip and do nothing...
                     }
                 }
             }

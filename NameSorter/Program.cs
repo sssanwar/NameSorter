@@ -12,7 +12,7 @@ namespace NameSorter.Data
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("No filepath provided. Exiting...");
+                Console.WriteLine("No filepath provided. This program will exit.");
                 Environment.Exit(160);
             }
 
